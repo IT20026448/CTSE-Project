@@ -33,7 +33,7 @@ export default function Home() {
             <Image source={profile} style={styles.profileImage} />
           </View>
         </SafeAreaView>
-        <TouchableOpacity onPress={() => navigation.navigate("Tasks")}>
+        <TouchableOpacity onPress={() => navigation.navigate("AddTaskScreen")}>
           <ImageBackground
             source={work}
             style={[styles.discoverItem]}
