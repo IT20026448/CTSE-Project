@@ -1,58 +1,57 @@
-import { initializeApp } from 'firebase/app';
-import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from 'firebase/auth';
-import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet,Alert } from 'react-native';
-import { firebaseConfig } from '../firebase-config';
-import { useNavigation } from '@react-navigation/native';
-import Home from "./Home";
-
-
-
+import { initializeApp } from "firebase/app";
+import {
+  createUserWithEmailAndPassword,
+  getAuth,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
+import React, { useState } from "react";
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  StyleSheet,
+  Alert,
+} from "react-native";
+import { firebaseConfig } from "../firebase-config";
+import { useNavigation } from "@react-navigation/native";
 
 const LoginPage = () => {
-  const [email, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
-  const navigation =useNavigation();
+  const navigation = useNavigation();
 
-  const app= initializeApp(firebaseConfig)
-  const auth= getAuth(app)
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
 
-//   const handleLogin = () => {
-//     // Handle the login action here
-//     console.log(`Username: ${username}, Password: ${password}`);
-//   };
-
-  const handleCreateAccount = ()=>{
-    createUserWithEmailAndPassword(auth,email,password)
-    .then((userCredential)=>{
+  const handleCreateAccount = () => {
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
         console.log("Account created");
         const user = userCredential.user;
         console.log(user);
-        Alert.alert("Success","Account created successfully !!")
-    
-    })
-    .catch(error=>{
+        Alert.alert("Success", "Account created successfully !!");
+      })
+      .catch((error) => {
         console.log(error);
-        Alert.alert("error",error.message)
-    })
-}
+        Alert.alert("error", error.message);
+      });
+  };
 
-    const handleLoginUser = ()=>{
-        signInWithEmailAndPassword(auth,email,password)
-        .then((userCredential)=>{
-            console.log("signed in");
-            const user =userCredential.user;
-            console.log(user);
-            navigation.navigate('Home');
-        }).catch(error=>{
-            console.log(error);
-            Alert.alert("error",error.message)
-        })
-
-    }
-
-  
+  const handleLoginUser = () => {
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        console.log("signed in");
+        const user = userCredential.user;
+        console.log(user);
+        navigation.navigate("Home");
+      })
+      .catch((error) => {
+        console.log(error);
+        Alert.alert("error", error.message);
+      });
+  };
 
   return (
     <View style={styles.container}>
@@ -89,39 +88,39 @@ const LoginPage = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#faf8d4',
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#faf8d4",
   },
   title: {
     fontSize: 24,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginBottom: 30,
   },
   input: {
-    width: '80%',
+    width: "80%",
     height: 50,
     borderWidth: 1,
-    borderColor: '#a9a9a9',
+    borderColor: "#a9a9a9",
     borderRadius: 5,
     paddingLeft: 10,
     fontSize: 18,
-    color: '#000',
-    backgroundColor: '#f9f9f9',
+    color: "#000",
+    backgroundColor: "#f9f9f9",
     marginVertical: 10,
   },
   button: {
-    backgroundColor: '#4CAF50',
+    backgroundColor: "#4CAF50",
     borderRadius: 5,
     paddingVertical: 10,
     paddingHorizontal: 15,
     marginTop: 20,
   },
   buttonText: {
-    color: '#fff',
-    fontWeight: 'bold',
+    color: "#fff",
+    fontWeight: "bold",
     fontSize: 16,
-    textAlign: 'center',
+    textAlign: "center",
   },
 });
 
