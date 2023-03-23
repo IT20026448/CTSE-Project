@@ -1,11 +1,26 @@
-import { View,Text } from "react-native";
+import { View,Text, TouchableOpacity, Button } from "react-native";
+import { useNavigation } from '@react-navigation/native';
+import AddEmployee from './AddEmployee';
+import React from 'react';
 
+const Home = () => {
+    const navigation = useNavigation();
 
-export default function Home(){
+    const addEmpNav = () => {
+        navigation.navigate('Employee');
+    }
+
+    const viewEmpNav = () => {
+        navigation.navigate()
+    }
 
     return(
         <View>
-        <Text>This is home page</Text>
+            <Text>This is home page</Text>
+            <Button onPress={addEmpNav} title="Add Employee"/>
+            <Button title="View Employee"/>
         </View>
     )
-}
+};
+
+export default Home;
