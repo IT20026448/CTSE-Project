@@ -4,6 +4,8 @@ import LoginPage from "./components/Loginpage";
 import Home from "./components/Home";
 import AddTaskScreen from "./components/TaskManagement/AddTaskScreen";
 import TaskList from "./components/TaskManagement/TaskList";
+import TaskDetailsScreen from "./components/TaskManagement/TaskDetailsScreen";
+import Tasks from "./screens/Task";
 
 export default function App() {
   const Stack = createNativeStackNavigator();
@@ -21,6 +23,16 @@ export default function App() {
           name="TaskList"
           component={TaskList}
           options={{ title: "Task List" }}
+        />
+         <Stack.Screen
+          name="TaskDetailsScreen"
+          component={TaskDetailsScreen}
+          options={{ title: "Task Details" }}
+        />
+        <Stack.Screen
+          name="Tasks"
+          component={Tasks}
+          options={{ title: "Quick Tasks" }}
         />
       </Stack.Navigator>
     </NavigationContainer>
