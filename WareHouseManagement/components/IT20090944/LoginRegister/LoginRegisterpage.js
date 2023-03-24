@@ -133,5 +133,6 @@ const styles = StyleSheet.create({
     resizeMode: "strech", // or 'stretch'
   },
 });
+//export
 
 export default LoginPage;
