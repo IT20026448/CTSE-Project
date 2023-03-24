@@ -11,14 +11,14 @@ const Home = () => {
     }
 
     const viewEmpNav = () => {
-        navigation.navigate()
+        navigation.navigate("ViewEmp");
     }
 
     return(
         <View>
             <Text>This is home page</Text>
             <Button onPress={addEmpNav} title="Add Employee"/>
-            <Button title="View Employee"/>
+            <Button title="View Employee" onPress={viewEmpNav}/>
         </View>
     )
 };
