@@ -1,6 +1,8 @@
 # CTSE-Project
 
-Group ID- IT20026448(Leader's ID number)
+Group ID-   69
+
+            IT20026448(Leader's ID number)
 
                 Warehouse Management system based on react native
             
