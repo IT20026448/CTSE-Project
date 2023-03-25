@@ -1,6 +1,6 @@
 import { View,Text, TouchableOpacity, Button } from "react-native";
 import { useNavigation } from '@react-navigation/native';
-import AddEmployee from './AddEmployee';
+import AddEmployee from './EmployeeManagement/AddEmployee';
 import React from 'react';
 
 const Home = () => {

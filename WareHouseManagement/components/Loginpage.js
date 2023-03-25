@@ -6,9 +6,6 @@ import { firebaseConfig } from '../firebase-config';
 import { useNavigation } from '@react-navigation/native';
 import Home from "./Home";
 
-
-
-
 const LoginPage = () => {
   const [email, setUsername] = useState('');
   const [password, setPassword] = useState('');

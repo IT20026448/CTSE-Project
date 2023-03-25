@@ -2,7 +2,7 @@ import { useNavigation } from '@react-navigation/native';
 import {View, Text, TextInput, Button} from 'react-native';
 import { useState } from 'react';
 import { doc, addDoc, collection } from "firebase/firestore";
-import { db } from '../firebase-config';
+import { db } from '../../firebase-config';
 
 const AddEmployee = () => {
     const [empID, setEmpID] = useState('');
