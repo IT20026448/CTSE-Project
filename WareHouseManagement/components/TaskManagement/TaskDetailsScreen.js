@@ -39,7 +39,7 @@ const TaskDetailsScreen = (props) => {
       .then((docSnapshot) => {
         if (docSnapshot.exists()) {
           const taskData = docSnapshot.data();
-          setTask(taskData);
+          setTask({ ...taskData, id: docSnapshot.id });
           setLoading(false);
         }
       })
@@ -55,11 +55,12 @@ const TaskDetailsScreen = (props) => {
     // const task = documentSnap.data();
 
     // setTask({ ...task, id: documentSnap.id });
+    // setLoading(false);
   };
 
   const deleteTask = async () => {
     setLoading(true);
-    const dbRef = deleteDoc(doc(db, "Tasks", props.route.params.taskId));
+    const dbRef = deleteDoc(doc(db, "Tasks", props.route.params?.taskId));
     await dbRef.delete();
 
     setLoading(false);
@@ -81,7 +82,7 @@ const TaskDetailsScreen = (props) => {
   };
 
   const updateTask = async () => {
-    const taskRef = updateDoc(doc(db, "Tasks")).doc(task.id);
+    const taskRef = updateDoc(doc(db, "Tasks", task.id));
 
     await taskRef.set({
       taskName: task.taskName,
@@ -93,7 +94,7 @@ const TaskDetailsScreen = (props) => {
   };
 
   useEffect(() => {
-    getTaskById(props.route.params.taskId);
+    getTaskById(props.route.params?.taskId);
   }, []);
 
   if (loading) {

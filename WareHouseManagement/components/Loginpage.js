@@ -54,34 +54,36 @@ const LoginPage = () => {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Log In</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Email"
-        placeholderTextColor="#a9a9a9"
-        onChangeText={(input) => setUsername(input)}
-        value={email}
-        keyboardType="email-address"
-        maxLength={50}
-        autoFocus={true}
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Password"
-        placeholderTextColor="#a9a9a9"
-        onChangeText={(input) => setPassword(input)}
-        value={password}
-        maxLength={50}
-        secureTextEntry={true}
-      />
-      <TouchableOpacity style={styles.button} onPress={handleLoginUser}>
-        <Text style={styles.buttonText}>Log In</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.button} onPress={handleCreateAccount}>
-        <Text style={styles.buttonText}>Register</Text>
-      </TouchableOpacity>
-    </View>
+    <>
+      <View style={styles.container}>
+        <Text style={styles.title}>Log In</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Email"
+          placeholderTextColor="#a9a9a9"
+          onChangeText={(input) => setUsername(input)}
+          value={email}
+          keyboardType="email-address"
+          maxLength={50}
+          autoFocus={true}
+        />
+        <TextInput
+          style={styles.input}
+          placeholder="Password"
+          placeholderTextColor="#a9a9a9"
+          onChangeText={(input) => setPassword(input)}
+          value={password}
+          maxLength={50}
+          secureTextEntry={true}
+        />
+        <TouchableOpacity style={styles.button} onPress={handleLoginUser}>
+          <Text style={styles.buttonText}>Log In</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.button} onPress={handleCreateAccount}>
+          <Text style={styles.buttonText}>Register</Text>
+        </TouchableOpacity>
+      </View>
+    </>
   );
 };
 

@@ -25,16 +25,18 @@ const AddTaskScreen = (props) => {
   };
 
   const saveNewTask = async () => {
-    var regex = /[^a-zA-Z]/g;
-
     if (
       state.taskName === "" ||
       state.taskDescription === "" ||
       state.userName === ""
     ) {
       alert("Empty field");
-    } else if (state.userName !== regex || state.taskName !== regex) {
-      alert("User Name cannot contains numbers");
+    } else if (
+      state.taskName.length > 25 ||
+      state.taskDescription.length > 35 ||
+      state.userName.length > 10
+    ) {
+      alert("Exceeding the character limit");
     } else {
       try {
         addDoc(collection(db, "Tasks"), {

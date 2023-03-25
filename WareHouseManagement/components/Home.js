@@ -17,66 +17,73 @@ import work from "../assets/work.png";
 import employee from "../assets/employee.jpg";
 import product from "../assets/product.jpg";
 
+
 export default function Home() {
+ 
   const navigation = useNavigation();
   return (
-    <View style={styles.container}>
-      <ScrollView>
-        <SafeAreaView>
-          <View style={styles.menuWrapper}>
-            <Feather
-              name="menu"
-              size={32}
-              color={colors.black}
-              style={styles.menuIcon}
-            />
-            <Image source={profile} style={styles.profileImage} />
-          </View>
-        </SafeAreaView>
-        <TouchableOpacity onPress={() => navigation.navigate("AddTaskScreen")}>
-          <ImageBackground
-            source={work}
-            style={[styles.discoverItem]}
-            imageStyle={styles.discoverItemImage}
-          >
-            <View style={styles.discoverItemLocationWrapper}>
-              <Entypo name="location-pin" size={18} color={colors.white} />
-              <Text style={styles.discoverItemLocationText}>
-                {"Manage Tasks"}
-              </Text>
+    <>
+      <View style={styles.container}>
+        <ScrollView>
+          <SafeAreaView>
+            <View style={styles.menuWrapper}>
+              <Feather
+                name="menu"
+                size={32}
+                color={colors.black}
+                style={styles.menuIcon}
+              />
+              <Image source={profile} style={styles.profileImage} />
             </View>
-          </ImageBackground>
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <ImageBackground
-            source={employee}
-            style={[styles.discoverItem]}
-            imageStyle={styles.discoverItemImage}
+          </SafeAreaView>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("AddTaskScreen")}
           >
-            <View style={styles.discoverItemLocationWrapper}>
-              <Entypo name="location-pin" size={18} color={colors.white} />
-              <Text style={styles.discoverItemLocationText}>
-                {"Manage Employees"}
-              </Text>
-            </View>
-          </ImageBackground>
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <ImageBackground
-            source={product}
-            style={[styles.discoverItem]}
-            imageStyle={styles.discoverItemImage}
-          >
-            <View style={styles.discoverItemLocationWrapper}>
-              <Entypo name="location-pin" size={18} color={colors.white} />
-              <Text style={styles.discoverItemLocationText}>
-                {"Manage Products"}
-              </Text>
-            </View>
-          </ImageBackground>
-        </TouchableOpacity>
-      </ScrollView>
-    </View>
+            <ImageBackground
+              source={work}
+              style={[styles.discoverItem]}
+              imageStyle={styles.discoverItemImage}
+            >
+              <View style={styles.discoverItemLocationWrapper}>
+                <Entypo name="location-pin" size={18} color={colors.white} />
+                <Text style={styles.discoverItemLocationText}>
+                  {"Manage Tasks"}
+                </Text>
+              </View>
+            </ImageBackground>
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <ImageBackground
+              source={employee}
+              style={[styles.discoverItem]}
+              imageStyle={styles.discoverItemImage}
+            >
+              <View style={styles.discoverItemLocationWrapper}>
+                <Entypo name="location-pin" size={18} color={colors.white} />
+                <Text style={styles.discoverItemLocationText}>
+                  {"Manage Employees"}
+                </Text>
+              </View>
+            </ImageBackground>
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <ImageBackground
+              source={product}
+              style={[styles.discoverItem]}
+              imageStyle={styles.discoverItemImage}
+            >
+              <View style={styles.discoverItemLocationWrapper}>
+                <Entypo name="location-pin" size={18} color={colors.white} />
+                <Text style={styles.discoverItemLocationText}>
+                  {"Manage Products"}
+                </Text>
+              </View>
+            </ImageBackground>
+          </TouchableOpacity>
+        </ScrollView>
+      </View>
+     
+    </>
   );
 }
 
